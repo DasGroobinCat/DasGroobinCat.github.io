@@ -1,0 +1,46 @@
+<html>
+<head><title>Jonah Fejedelem's Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=0.7">
+<style>
+  body {background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(110, 253, 255, 1) 100%); text-align: center; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); font-size: 40px;}
+  h1 {font-size: 42px;}
+  a {text-decoration: none; color: black;}
+  div {font-size: 22px; width: 70%; float: right;}
+  #noai {padding: 8px;}
+  .hotlink {text-decoration: underline; color: blue;}
+</style>
+</head>
+<body>
+<h1 id="body" style="opacity: 0;">Jonah Fejedelem's Portfolio</h1>
+
+  <a href="https://sketchfab.com/big_jojo"><img src="Blender.png" width="200"><br>3D models</a><br><br>
+  <a href="https://m.youtube.com/@jonah1976/shorts"><img src="BlendDVR.png" width="475"><br>3D Animations</a><br><br>
+  <a href="scrapbook.html"><img src="Scrapbook.png" width="200"><br>Teaching Scrapbook</a><br><br>
+  <a href="https://github.com/DasGroobinCat/Zillion-Assistant/tree/main"><img src="LuaMesen.png" width="475"><br>Lua Script</a><br><br>
+  <a href="https://support.xmplay.com/files_view.php?file_id=663"><img src="XMPlay.png" width="420"><br>XMPlay Skin</a><br>
+<div align="right"><img src="NoAI.png" width="100" align="center" id="noai"><br>
+Made by hand using<br><a href="https://f-droid.org/packages/com.maxistar.textpad/"><span class="hotlink">Simple Text Editor</span></a> and <a href="https://www.photopea.com/"><span class="hotlink">Photopea</span></a></div><br>
+<script type="text/javascript">
+        var opacity = 0;
+        var intervalID = 0;
+        window.onload = fadeIn;
+        
+        function fadeIn() {
+            setInterval(show, 200);
+        }
+        
+        function show() {
+            var body = document.getElementById("body");
+            opacity = Number(window.getComputedStyle(body)
+                            .getPropertyValue("opacity"));
+            if (opacity < 1) {
+                opacity = opacity + 0.1;
+                body.style.opacity = opacity
+            } else {
+                clearInterval(intervalID);
+            }
+        }
+    </script>
+<script src="https://static.app/js/static.js" type="text/javascript"></script>
+</body>
+</html>
