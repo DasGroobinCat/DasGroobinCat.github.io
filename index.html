@@ -4,8 +4,9 @@
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 <link rel="icon" type="image/png" sizes="192x192" href="/FavIcon.png">
 <style>
-  body {background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(110, 253, 255, 1) 100%); text-align: center; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); font-family: 'Roboto'; font-size: 40px;}
-  h1 {font-size: 42px;}
+  body {background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(110, 253, 255, 1) 100%); text-align: center; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); font-family: 'Roboto'; font-size: 40px; display: flex;}
+  h1 {font-size: 0; opacity: 0; transform: scale(0); transition: font-size 1.5s ease-out, opacity 1.5s ease-out, transform 1.5s ease-out;}
+  h1.animate {font-size: 42px; opacity: 1; transform: scale(1);}
   a {text-decoration: none; color: black;}
   div {font-size: 22px; width: 70%; float: right;}
   #noai {padding: 8px;}
@@ -13,7 +14,7 @@
 </style>
 </head>
 <body>
-<h1 id="body" style="opacity: 0;">Jonah Fejedelem's Portfolio</h1>
+<h1 id="animatedHeading">Jonah Fejedelem's Portfolio</h1>
 
   <a href="https://sketchfab.com/big_jojo"><img src="Blender.png" width="200"><br>3D models</a><br><br>
   <a href="https://m.youtube.com/@jonah1976/shorts"><img src="BlendDVR.png" width="475"><br>3D Animations</a><br><br>
@@ -23,25 +24,15 @@
 <div align="right"><img src="NoAI.png" width="100" align="center" id="noai"><br>
 Made by hand using<br><a href="https://f-droid.org/packages/com.maxistar.textpad/"><span class="hotlink">Simple Text Editor</span></a> and <a href="https://www.photopea.com/"><span class="hotlink">Photopea</span></a></div><br>
 <script type="text/javascript">
-        var opacity = 0;
-        var intervalID = 0;
-        window.onload = fadeIn;
-        
-        function fadeIn() {
-            setInterval(show, 200);
-        }
-        
-        function show() {
-            var body = document.getElementById("body");
-            opacity = Number(window.getComputedStyle(body)
-                            .getPropertyValue("opacity"));
-            if (opacity < 1) {
-                opacity = opacity + 0.1;
-                body.style.opacity = opacity
-            } else {
-                clearInterval(intervalID);
-            }
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const heading = document.getElementById('animatedHeading');
+            const normalFontSize = '42px';
+            setTimeout(() => {
+                heading.style.fontSize = normalFontSize;
+                heading.style.opacity = '1';
+                heading.style.transform = 'scale(1)';
+            }, 50);
+        });
     </script>
 </body>
 </html>
