@@ -80,5 +80,33 @@ Made by hand using<br><a href="https://f-droid.org/packages/com.maxistar.textpad
             }, 150);
         });
     </script>
+  <script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+    const streakImages = document.querySelectorAll('#streak');
+
+    streakImages.forEach(img => {
+        const container = img.closest('.image-container'); // Assuming you wrap your image in a container
+
+        if (container) {
+            function startStreakAnimation() {
+                container.classList.remove('animate-streak'); // Remove to reset animation
+                void container.offsetWidth; // Trigger reflow to restart animation
+                container.classList.add('animate-streak');
+            }
+
+            // Start the first animation
+            startStreakAnimation();
+
+            // Set up the repeating animation
+            container.addEventListener('animationend', (event) => {
+                if (event.animationName === 'streak-animation') {
+                    setTimeout(() => {
+                        startStreakAnimation();
+                    }, 1250); // delay
+                }
+            });
+        }
+    });
+});
 </body>
 </html>
