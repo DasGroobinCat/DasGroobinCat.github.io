@@ -1,0 +1,83 @@
+<html>
+<head><title>Jonah Fejedelem's Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=0.7">
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<link rel="icon" type="image/png" sizes="192x192" href="/FavIcon.png">
+<style>
+  body {background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(110, 253, 255, 1) 100%); text-align: center; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); font-family: 'Roboto'; font-size: 4rem;}
+  h1 {font-size: 0; opacity: 0; transform: scale(0); transition: font-size 1.5s ease-out, opacity 1.5s ease-out, transform 1.5s ease-out;}
+  h1.animate {font-size: 4rem; opacity: 1; transform: scale(1);}
+  a {text-decoration: none; color: black;}
+  div {font-size: 22px; width: 70%; float: right;}
+  #noai {padding: 8px;}
+  .hotlink {text-decoration: underline; color: blue;}
+
+  /* Container to position elements */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Background logo */
+.background-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://dasgroobincat.github.io/Scrapbook.png') no-repeat center center;
+  background-size: contain; /* Adjust size as needed */
+  z-index: 1; /* Place it behind the content */
+  opacity: 0.2; /* Make it subtle */
+}
+
+/* Gradient overlay */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+  z-index: 2; /* Layer above the logo */
+}
+
+/* Content styling */
+.content {
+  position: relative;
+  z-index: 3; /* Place content above everything */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+  <div class="background-logo"></div>
+  <div class="content">
+<h1 id="animatedHeading">Jonah Fejedelem's<br>Portfolio</h1>
+  <a href="https://sketchfab.com/big_jojo"><img src="Blender.png" width="200"><br>3D models</a><br><br>
+  <a href="https://m.youtube.com/@jonah1976/shorts"><img src="BlendDVR.png" width="475"><br>3D Animations</a><br><br>
+  <a href="scrapbook.html"><img src="Scrapbook.png" width="200"><br>Teaching Scrapbook</a><br><br>
+  <a href="https://github.com/DasGroobinCat/Zillion-Assistant/tree/main"><img src="LuaMesen.png" width="475"><br>Lua Script</a><br><br>
+  <a href="https://support.xmplay.com/files_view.php?file_id=663"><img src="XMPlay.png" width="420"><br>XMPlay Skin</a><br>
+<div align="right"><img src="NoAI.png" width="100" align="center" id="noai"><br>
+Made by hand using<br><a href="https://f-droid.org/packages/com.maxistar.textpad/"><span class="hotlink">Simple Text Editor</span></a> and <a href="https://www.photopea.com/"><span class="hotlink">Photopea</span></a></div><br>
+<script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            const heading = document.getElementById('animatedHeading');
+            const normalFontSize = '4rem';
+            setTimeout(() => {
+                heading.style.fontSize = normalFontSize;
+                heading.style.opacity = '1';
+                heading.style.transform = 'scale(1)';
+            }, 150);
+        });
+    </script>
+  </div></div>
+</body>
+</html>
