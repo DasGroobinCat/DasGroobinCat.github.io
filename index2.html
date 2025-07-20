@@ -10,57 +10,59 @@
   a {text-decoration: none; color: black;}
   div {font-size: 22px; width: 70%; float: right;}
   #noai {padding: 8px;}
-  .hotlink {text-decoration: underline; color: blue;}
-
-  /* Container to position elements */
-.container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  .hotlink {text-decoration: underline; color: blue;}  
+  .image-container {
+    position: relative; /* Essential for positioning the streak */
+    display: inline-block; /* Or block, depending on layout */
+    overflow: hidden; /* Crucial to hide the streak when it's outside the image area */
 }
 
-/* Background logo */
-.background-logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://dasgroobincat.github.io/Scrapbook.png') no-repeat center center;
-  background-size: contain; /* Adjust size as needed */
-  z-index: 1; /* Place it behind the content */
-  opacity: 0.2; /* Make it subtle */
+#streak {
+    display: block; /* Ensures no extra space around the image */
+    width: 100%;
+    height: auto;
 }
 
-/* Gradient overlay */
-.container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
-  z-index: 2; /* Layer above the logo */
+/* The streak pseudo-element */
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: -100%; /* Start off-screen above and to the left */
+    left: -100%;
+    width: 200%; /* Make it wide enough to cover the diagonal */
+    height: 300%; /* Make it tall enough */
+    background: linear-gradient(45deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.8) 50%, /* The bright part of the streak */
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg); /* Angle the streak itself */
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Ensure it doesn't interfere with clicks on the image */
 }
 
-/* Content styling */
-.content {
-  position: relative;
-  z-index: 3; /* Place content above everything */
-  color: white;
-  padding: 20px;
-  text-align: center;
-  }
+/* CSS class for animation (to be toggled by JS) */
+.image-container.animate-streak::before {
+    animation: streak-animation 1.5s ease-in-out forwards;
+}
+
+@keyframes streak-animation {
+    0% {
+        top: -100%;
+        left: -220%;
+        opacity: 0.8; /* Fade in slightly */
+    }
+    100% {
+        top: 100%; /* End off-screen below and to the right */
+        left: 100%;
+        opacity: 0; /* Fade out */
+    }
+    }
 </style>
 </head>
 <body>
-  <div class="container">
-  <div class="background-logo"></div>
-  <div class="content">
 <h1 id="animatedHeading">Jonah Fejedelem's<br>Portfolio</h1>
-  <a href="https://sketchfab.com/big_jojo"><img src="Blender.png" width="200"><br>3D models</a><br><br>
+  <a href="https://sketchfab.com/big_jojo"><img id="streak" src="Blender.png" width="200"><br>3D models</a><br><br>
   <a href="https://m.youtube.com/@jonah1976/shorts"><img src="BlendDVR.png" width="475"><br>3D Animations</a><br><br>
   <a href="scrapbook.html"><img src="Scrapbook.png" width="200"><br>Teaching Scrapbook</a><br><br>
   <a href="https://github.com/DasGroobinCat/Zillion-Assistant/tree/main"><img src="LuaMesen.png" width="475"><br>Lua Script</a><br><br>
@@ -78,6 +80,5 @@ Made by hand using<br><a href="https://f-droid.org/packages/com.maxistar.textpad
             }, 150);
         });
     </script>
-  </div></div>
 </body>
 </html>
